@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://cglpemq371fpp"]
+
+[ext_resource type="Texture2D" uid="uid://dfdob1noqvlpn" path="res://xji4_j77a_220322.jpg" id="1_2q0dl"]
+[ext_resource type="Script" path="res://carro.gd" id="1_eyxpd"]
+[ext_resource type="Texture2D" uid="uid://chr57cou2b54t" path="res://sinal.png" id="2_j833a"]
+[ext_resource type="Texture2D" uid="uid://d3li07b80vo2k" path="res://vecteezy_crosswalk-for-safety-walking-across-the-road-top-view-flat_19850825-1.jpg" id="3_5l4ww"]
+[ext_resource type="Texture2D" uid="uid://cy2kk2roc8nrp" path="res://carro-esporte.png" id="5_1iyp0"]
+[ext_resource type="Texture2D" uid="uid://j7l8xwbdkphf" path="res://moto 2.png" id="6_qy4uu"]
+[ext_resource type="Script" path="res://Moto.gd" id="7_da6ua"]
+[ext_resource type="Texture2D" uid="uid://bh4x0l1n0fi4a" path="res://UI-9.png" id="9_aixao"]
+[ext_resource type="Script" path="res://Semaforo.gd" id="10_gj8bl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_eyxpd")
+
+[node name="cenario" type="Sprite2D" parent="."]
+position = Vector2(592, 232)
+scale = Vector2(0.180992, 0.18547)
+texture = ExtResource("1_2q0dl")
+
+[node name="Sinal" type="Sprite2D" parent="."]
+position = Vector2(914, 428)
+scale = Vector2(0.127396, 0.115)
+texture = ExtResource("2_j833a")
+script = ExtResource("10_gj8bl")
+
+[node name="Graphic-9100661280" type="Sprite2D" parent="."]
+position = Vector2(721, 612)
+scale = Vector2(0.286328, 0.229688)
+
+[node name="VecteezyCrosswalk-for-safety-walking-across-the-road-top-view-flat19850825-1" type="Sprite2D" parent="."]
+position = Vector2(866, 564)
+scale = Vector2(0.103125, 0.0822917)
+texture = ExtResource("3_5l4ww")
+
+[node name="Carro-esporte" type="Sprite2D" parent="."]
+position = Vector2(115, 509)
+scale = Vector2(0.359375, 0.429688)
+texture = ExtResource("5_1iyp0")
+script = ExtResource("1_eyxpd")
+
+[node name="Moto2" type="Sprite2D" parent="."]
+position = Vector2(304, 531)
+scale = Vector2(0.281746, 0.246717)
+texture = ExtResource("6_qy4uu")
+script = ExtResource("7_da6ua")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 880.0
+offset_top = 437.0
+offset_right = 914.0
+offset_bottom = 469.0
+icon = ExtResource("9_aixao")
+flat = true
+expand_icon = true
+
+[connection signal="farolFicouVerde" from="Sinal" to="Carro-esporte" method="_on_sinal_farol_ficou_verde"]
+[connection signal="farolFicouVerde" from="Sinal" to="Moto2" method="_on_sinal_farol_ficou_verde"]
+[connection signal="farolFicouVermelho" from="Sinal" to="Carro-esporte" method="_on_sinal_farol_ficou_vermelho"]
+[connection signal="farolFicouVermelho" from="Sinal" to="Moto2" method="_on_sinal_farol_ficou_vermelho"]
+[connection signal="button_down" from="Button" to="Sinal" method="_on_button_button_down"]
