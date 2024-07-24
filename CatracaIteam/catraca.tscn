@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv532r3pik35x"]
+
+[ext_resource type="Script" path="res://Catraca.gd" id="1_q2gea"]
+[ext_resource type="Texture2D" uid="uid://d0iaq24eb1bp" path="res://assets/Sky.png" id="2_a081c"]
+[ext_resource type="Texture2D" uid="uid://cyrhkldyv3gu8" path="res://assets/road&lamps_pale.png" id="3_h12bo"]
+[ext_resource type="Texture2D" uid="uid://dqtar11s4pky5" path="res://assets/Passenger car_Spritelist.png" id="4_e0do5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q2gea")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(584, 330)
+scale = Vector2(0.598958, 0.592593)
+texture = ExtResource("2_a081c")
+
+[node name="Road&lampsPale" type="Sprite2D" parent="."]
+position = Vector2(574, 281)
+scale = Vector2(0.598698, 0.477778)
+texture = ExtResource("3_h12bo")
+
+[node name="PassengerCarSpritelist" type="Sprite2D" parent="."]
+position = Vector2(126, 416)
+texture = ExtResource("4_e0do5")

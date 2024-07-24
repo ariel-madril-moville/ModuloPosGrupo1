@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://7s4r2kksh841"]
+
+[ext_resource type="Script" path="res://Mamifero.gd" id="1_8llli"]
+[ext_resource type="Texture2D" uid="uid://c6w2wbu5c48dt" path="res://cavalo.png" id="2_v2c45"]
+[ext_resource type="Script" path="res://Cavalo.gd" id="2_vc7be"]
+[ext_resource type="Texture2D" uid="uid://cfxshsg2qh3yd" path="res://cemaforo.png" id="3_0lc6m"]
+[ext_resource type="Script" path="res://Farol.gd" id="4_7chtg"]
+[ext_resource type="Texture2D" uid="uid://df61v5kixiaxt" path="res://porco-aranha.jpg" id="5_881w4"]
+[ext_resource type="Script" path="res://Porco.gd" id="6_7mmqf"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8llli")
+
+[node name="Cavalo1" type="Sprite2D" parent="."]
+position = Vector2(90, 89)
+scale = Vector2(0.12381, 0.114441)
+texture = ExtResource("2_v2c45")
+script = ExtResource("2_vc7be")
+Velocidade = null
+possoCorrer = null
+
+[node name="Cavalo2" type="Sprite2D" parent="."]
+position = Vector2(102, 235)
+scale = Vector2(0.12381, 0.114441)
+texture = ExtResource("2_v2c45")
+script = ExtResource("2_vc7be")
+Velocidade = 4
+possoCorrer = null
+
+[node name="Cavalo3" type="Sprite2D" parent="."]
+position = Vector2(116, 489)
+scale = Vector2(0.12381, 0.114441)
+texture = ExtResource("2_v2c45")
+script = ExtResource("2_vc7be")
+Velocidade = 3
+possoCorrer = null
+
+[node name="Cemaforo" type="Sprite2D" parent="."]
+position = Vector2(766, 217)
+scale = Vector2(0.733333, 0.788889)
+texture = ExtResource("3_0lc6m")
+script = ExtResource("4_7chtg")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 830.0
+offset_top = 252.0
+offset_right = 916.0
+offset_bottom = 336.0
+
+[node name="Porco-aranha" type="Sprite2D" parent="."]
+position = Vector2(112, 361)
+scale = Vector2(0.136891, 0.138667)
+texture = ExtResource("5_881w4")
+script = ExtResource("6_7mmqf")
+
+[connection signal="farolFicouVerde" from="Cemaforo" to="Cavalo1" method="Corre"]
+[connection signal="farolFicouVerde" from="Cemaforo" to="Cavalo2" method="Correr"]
+[connection signal="farolFicouVerde" from="Cemaforo" to="Cavalo3" method="Corre"]
+[connection signal="farolFicouVermelho" from="Cemaforo" to="Cavalo1" method="Para"]
+[connection signal="farolFicouVermelho" from="Cemaforo" to="Cavalo2" method="Pare"]
+[connection signal="farolFicouVermelho" from="Cemaforo" to="Cavalo3" method="Pare"]
+[connection signal="button_down" from="Button" to="Cemaforo" method="BotaoApertado"]
